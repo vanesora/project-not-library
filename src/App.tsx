@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import {
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
+import { LoginPage } from "./Pages/Login/Login";
+import { UserListPage } from "./Pages/UserList/UserList";
+import { HomePage } from "./Pages/Home/Home";
+import { UserDetailsPage } from "./Pages/UserDetails/UserDetails";
 
-function App() {
+const App = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (url: string) => {
+    navigate(url);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{overflow: "hidden"}}>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/user-list" element={<UserListPage />} />
+        <Route path="/user/:id" element={<UserDetailsPage />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
