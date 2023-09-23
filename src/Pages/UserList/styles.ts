@@ -27,8 +27,8 @@ export const TableHeader = styled.th<{headersLength: any, height: any, colorText
 
   .div-th {
     padding: 8px;
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
     display: flex;
     align-items: center;
     background-color: ${(props) => (props.color ? props.color : '#FF7300')};
@@ -61,8 +61,8 @@ export const TableCell = styled.td<{border: string, headersLength: any, position
 
   .div-td {
     padding: 8px;
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
     border: ${(props) => (props.border ? props.border : '1px solid #FF7300')};
     text-align: ${(props) => props.positionCells};
     background-color: ${(props) => ('transparent')};
