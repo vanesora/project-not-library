@@ -10,6 +10,7 @@ import {
   NoDataMessage,
   Paginator,
 } from "./styles";
+import { Icon } from "../../components/Icon";
 
 export function UserListPage() {
   const [actualPage, setActualPage] = useState(1);
@@ -127,32 +128,7 @@ export function UserListPage() {
                     </TableCell>
                   ))}
                   <ContainerActions>
-                    {actions.add && (
-                      <div className="container-icon">
-                        <button
-                          className="icon-add"
-                          style={{ transform: "scale(0.8)" }}
-                          onClick={() => handleAction("add", item)}
-                          disabled={!item.status}
-                        >
-                          <span className="material-icons-outlined">add</span>
-                        </button>
-                      </div>
-                    )}
-                    {actions.substract && (
-                      <div className="container-icon">
-                        <button
-                          className="icon-subs"
-                          style={{ transform: "scale(0.8)" }}
-                          onClick={() => handleAction("substrac", item)}
-                          disabled={!item.status}
-                        >
-                          <span className="material-icons-outlined">
-                            remove
-                          </span>
-                        </button>
-                      </div>
-                    )}
+
                     {actions.view && (
                       <div className="container-icon">
                         <button
@@ -160,7 +136,8 @@ export function UserListPage() {
                           style={{ transform: "scale(0.8)" }}
                           onClick={() => handleAction("view", item)}
                         >
-                          <span>visibility</span>
+                          <span><Icon icon="visibility" size="medium" color="white" /></span>
+                          
                         </button>
                       </div>
                     )}
@@ -172,33 +149,7 @@ export function UserListPage() {
                           onClick={() => handleAction("edit", item)}
                           disabled={!item.status}
                         >
-                          <span className="material-icons-outlined">edit</span>
-                        </button>
-                      </div>
-                    )}
-                    {actions.status && (
-                      <div className="container-icon">
-                        <label className="container-switch">
-                          <input
-                            type="checkbox"
-                            checked={Boolean(item.status)}
-                            onChange={() => handleAction("status", item)}
-                          />
-                          <span className="slider round"></span>
-                        </label>
-                      </div>
-                    )}
-                    {actions.delete && (
-                      <div className="container-icon">
-                        <button
-                          className="icon"
-                          style={{ transform: "scale(0.8)" }}
-                          onClick={() => handleAction("delete", item)}
-                          disabled={!item.status}
-                        >
-                          <span className="material-icons-outlined">
-                            delete
-                          </span>
+                          <span><Icon icon="edit" size="medium" color="white" /></span>
                         </button>
                       </div>
                     )}
@@ -209,13 +160,14 @@ export function UserListPage() {
           ) : (
             <NoDataMessage>No se encontraron datos relacionados</NoDataMessage>
           )}
-          (
+          
           <Paginator>
             <span
               className={`material-icons ${actualPage === 1 ? "disabled" : ""}`}
               onClick={handleBack}
             >
-              arrow_circle_left
+              <Icon icon="keyboard_arrow_left" size="small" color="white" />
+
             </span>
             <h3>{`Página ${actualPage} de ${totalPages}`}</h3>
             <span
@@ -224,10 +176,10 @@ export function UserListPage() {
               }`}
               onClick={handleNext}
             >
-              arrow_circle_right
+              <Icon icon="keyboard_arrow_right" size="small" color="white" />
             </span>
           </Paginator>
-          )
+          
         </div>
       </TableContainer>
     </TableBox>

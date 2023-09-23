@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const TableBox = styled.div`
   overflow-x: hidden;
   overflow-y: hidden;
+  background-color: white;
+  color: black
 `;
 
 export const TableContainer = styled.div`
@@ -87,6 +89,26 @@ export const ContainerActions = styled.td`
     display: flex;
     align-items: center;
 
+    button{
+      background-color: transparent;
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+
+    span{
+      height: 45px;
+      width: 45px;
+      background-color: #090088;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
     .icon-add {
       background-color: ${(props) => '#33691E'};
     }
@@ -113,6 +135,16 @@ export const Paginator = styled.div`
 
   h3 {
     margin: 0 5px;
+  }
+
+  span{
+    height: 20px;
+    width: 20px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
   }
 
   .mat-icon {
