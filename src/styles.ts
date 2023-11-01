@@ -157,6 +157,7 @@ export const Button = styled.button<{ flex: string; widthHook: number }>`
   justify-content: ${({ widthHook }) => (widthHook > 700 ? "center" : "start")};
   width: ${({ widthHook }) => (widthHook > 700 ? "60px" : "100%")};
   padding: 5px;
+  border: none;
 
   h2 {
     margin: 0;
